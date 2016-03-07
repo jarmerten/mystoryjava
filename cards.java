@@ -4,29 +4,25 @@ public class cards
 {
 public static void main(String args[])
  {
-Scanner kbReader =new Scanner(System.in);
+	Scanner letsplay =new Scanner(System.in);
 	Random rand= new Random ();
 	int random=rand.nextInt(11)+1;
 	int firstrandom = 0;
 	int tenwasdrawn;
 	String ace ;
 	int totalhand = 0;
-	String aces;
 	String twentyone;
-	String firstcard;
-		System.out.println("Lets get started with some 21, if you bust, 15 seconds are added to timer, every number under 21 will result" +"\n"+ "in an additional problem you need to answer. Timer stops when all questions are answered. (Type hit to get dealt your first card) ");
+	
+			HowManyUsers user = new HowManyUsers();
+			user.used();
+			int playersused=user.players;
+			System.out.println(playersused);
+	
+	Person introduction = new Person();
+			introduction.speak();
+			
 		
-				do{
-					firstcard= kbReader.next();
-					if(firstcard.equalsIgnoreCase("hit"))
-					{
-					}
-					else
-					{
-						firstcard= "n";
-					}
-				}
-				while (firstcard.equals("n"));
+			
 		do{
 		firstrandom=rand.nextInt(11)+1;				
 			if(firstrandom<10)
@@ -60,7 +56,7 @@ Scanner kbReader =new Scanner(System.in);
 				{
 					System.out.println(" Ace! Would you like that to count as 1 or 11? ");
 					do{
-						ace =kbReader.next();
+						ace =letsplay.next();
 							
 						if(ace.equals("1"))
 						{
@@ -84,7 +80,7 @@ Scanner kbReader =new Scanner(System.in);
 				System.out.println("Your total of all your cards is "+ totalhand );
 					System.out.println("Type hit if you would like another card, otherwise type cut to stay where you are and move to the questions");
 					do{
-						twentyone= kbReader.next();
+						twentyone= letsplay.next();
 						if(twentyone.equalsIgnoreCase("hit"))
 						{
 						}
@@ -107,6 +103,7 @@ Scanner kbReader =new Scanner(System.in);
 				}
 		
 				while (twentyone.equals("hit"));
+		
 		
 			}
 
